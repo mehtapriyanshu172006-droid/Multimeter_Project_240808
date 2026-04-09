@@ -1,6 +1,83 @@
-Smart Multimeter Simulation ProjectPart 1 — What did we build?I made a software simulation of a digital multimeter that measures Resistance, Capacitance, and Inductance. It has an auto-ranging engine that automatically picks the right scale so the user doesn't have to do it manually. The simulation is very accurate, hitting about 98% accuracy across all modes.Part 2 — How to set it upTo get this running on your machine, follow these steps:Bashgit clone https://github.com/
-mehtapriyanshu172006-droid/Multimeter_Project_240808.git
-cd your-repo/end_term/smart_multimeter
+# Smart Multimeter Simulation Project
+
+## Part 1 — What did I build?
+
+I developed a **software simulation of a digital multimeter** that can measure:
+
+* Resistance (R)
+* Capacitance (C)
+* Inductance (L)
+
+The system includes an **auto-ranging feature** that automatically selects the best measurement range, improving accuracy and ease of use.
+
+---
+
+## Part 2 — How to set it up
+
+```bash
+git clone https://github.com/mehtapriyanshu172006-droid/Multimeter_Project_240808.git
+cd Multimeter_Project_240808/end_term/smart_multimeter
 pip install -r requirements.txt
-Part 3 — How to run the simulationRun the main script using this command:Bashpython simulate.py
-This script runs a 50-sample test for R, C, and L modes. It sweeps through different values to test if the auto-ranger switches correctly and then saves the accuracy and range plots in the results folder.Part 4 — Your resultsThis table shows how my auto-ranging engine keeps the error much lower compared to a multimeter stuck in a single fixed range:MethodR ErrorC ErrorL ErrorFixed-range (no auto)4.2%6.1%8.4%My auto-ranging sim0.40%0.34%0.49%(Note: These percentages are the real averages calculated from my simulation runs )Part 5 — Known limitationsIn a real hardware setup, things like ADC noise, probe resistance, and temperature drift would affect the readings. Since this is a math-based simulation, it uses a Gaussian noise model to stay realistic, but real-world components would have more physical interference.Project Files Overviewsimulate.py: The main entry point that runs the full test.autorange.py: Handles the range switching with a 3-sample hysteresis rule.measurement.py: Contains the physics formulas for R, C, and L.protocol.py: Formats the data into JSON packets for the mobile app.results/: Stores the 6 generated plots showing accuracy and range steps.Mobile App InterfaceThe simulation is designed to work with a mobile app. Below is the wireframe for the measurement display:
+```
+
+---
+
+## Part 3 — How to run the simulation
+
+```bash
+python simulate.py
+```
+
+This runs a **50-sample test** across R, C, and L values and stores plots in the `results/` folder.
+
+---
+
+## Part 4 — Results
+
+This table compares the performance of a **fixed-range multimeter** vs the **auto-ranging system**:
+
+| Method                  | R Error | C Error | L Error |
+| ----------------------- | ------- | ------- | ------- |
+| Fixed-range (no auto)   | 2.36%   | 8.19%   | 9.07%   |
+| Auto-ranging (proposed) | 0.40%   | 0.34%   | 0.49%   |
+
+> These values are average errors obtained from simulation runs.
+
+---
+
+## Part 5 — Known Limitations
+
+In real hardware systems, additional factors would affect accuracy:
+
+* ADC quantization noise
+* Probe resistance
+* Temperature variations
+
+This simulation uses a **Gaussian noise model** to approximate real-world behavior, but actual circuits may introduce more complex effects.
+
+---
+
+## Project Structure
+
+```
+smart_multimeter/
+│
+├── simulate.py        # runs full simulation
+├── autorange.py       # auto range logic
+├── measurement.py     # R, C, L calculations
+├── protocol.py        # JSON output formatting
+├── draw_ui.py         # mobile UI simulation
+├── results/           # output plots
+└── docs/              # UI images
+```
+
+---
+
+## Summary
+
+The results clearly show that:
+
+* **Auto-ranging significantly reduces measurement error**
+* Fixed-range systems perform poorly when the measured value is not close to the selected range
+
+This project demonstrates how intelligent range selection improves both **accuracy and usability** in measurement systems.
