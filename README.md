@@ -1,4 +1,5 @@
-Smart Multimeter Simulation ProjectPart 1 — What did we build?I made a software simulation of a digital multimeter that measures Resistance, Capacitance, and Inductance. It has an auto-ranging engine that automatically picks the right scale so the user doesn't have to do it manually. The simulation is very accurate, hitting about 98% accuracy across all modes.Part 2 — How to set it upTo get this running on your machine, follow these steps:Bashgit clone https://github.com//your-repo.git
+Smart Multimeter Simulation ProjectPart 1 — What did we build?I made a software simulation of a digital multimeter that measures Resistance, Capacitance, and Inductance. It has an auto-ranging engine that automatically picks the right scale so the user doesn't have to do it manually. The simulation is very accurate, hitting about 98% accuracy across all modes.Part 2 — How to set it upTo get this running on your machine, follow these steps:Bashgit clone https://github.com/
+mehtapriyanshu172006-droid/Multimeter_Project_240808.git
 cd your-repo/end_term/smart_multimeter
 pip install -r requirements.txt
 Part 3 — How to run the simulationRun the main script using this command:Bashpython simulate.py
